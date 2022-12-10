@@ -82,7 +82,7 @@ public class Project {
                 
             System.out.println();
             System.out.println("Moving to Biscuits.. ");
-                System.out.print("  Please enter item code ");
+                System.out.print("  Please enter item code: ");
                 int mb = case1.nextInt(); 
                 int mb1 = morning_price.get(mb);//price
                 System.out.print("  Please enter item quantity: ");
@@ -102,6 +102,13 @@ public class Project {
         int bill = s.nextInt();
         int change= bill - total;
         System.out.println("Here is your change: ₱" + change + '\n');
+            if(total >= 80){
+              add.promo();
+              String[] choose = {null, "Lemon Juice", "Watermelon Soda", "Cold Choco Milk","Soya Milk","Strawberry Juice"};
+              System.out.print("          From the choices 1-5. Enter your choice please: ");
+              int choice = s.nextInt();
+              System.out.println("          You choose "+ choose[choice] + " you can now get your free drinks at the counter." + '\n');
+            }
         System.out.print("--    Thank you  --");
         break;
 
@@ -171,6 +178,13 @@ public class Project {
         int l_bill = s.nextInt();
         int l_change= l_bill - lunch_total;
         System.out.println("Here is your change: ₱" + l_change + '\n');
+        if(lunch_total >= 80){
+              add.promo();
+              String[] choose = {null, "Lemon Juice", "Watermelon Soda", "Cold Choco Milk","Soya Milk","Strawberry Juice"};
+              System.out.print("          From the choices 1-5. Enter your choice please: ");
+              int choice = s.nextInt();
+              System.out.println("          You choose "+ choose[choice] + " you can now get your free drinks at the counter." + '\n');
+            }
         System.out.print("--    Thank you  --");
           break;
           
@@ -219,8 +233,8 @@ public class Project {
                 System.out.println(mer_drinks);
                 
             System.out.println();
-            System.out.println("Moving to Biscuits.. ");
-                System.out.print("  Please enter item code ");
+            System.out.println("Moving forward to Snacks.. ");
+                System.out.print("  Please enter item code: ");
                 int mer_b = case3.nextInt(); 
                 int mer_b1 = merienda_price.get(mer_b);//price
                 System.out.print("  Please enter item quantity: ");
@@ -240,6 +254,13 @@ public class Project {
         int m_bill = s.nextInt();
         int m_change= m_bill - merienda_total;
         System.out.println("Here is your change: ₱" + m_change + '\n');
+        if(merienda_total >= 80){
+              add.promo();
+              String[] choose = {null, "Lemon Juice", "Watermelon Soda", "Cold Choco Milk","Soya Milk","Strawberry Juice"};
+              System.out.print("          From the choices 1-5. Enter your choice please: ");
+              int choice = s.nextInt();
+              System.out.println("          You choose "+ choose[choice] + " you can now get your free drinks at the counter." + '\n');
+            }
         System.out.print("--    Thank you  --");
         break;
         }
