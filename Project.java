@@ -1,14 +1,16 @@
-
-package project;
+package OOP;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Project {
+public class jastineProj {
 
-   
-    public static void main(String[] args) {
-        
-        Scanner s = new Scanner(System.in);
+	/**
+	 * @param args
+	 */
+public static void main(String[] args) {
+		int orderAgain = 0;
+		
+		Scanner s = new Scanner(System.in);
         Additional_Functions add = new Additional_Functions();
         lunch_function lf = new lunch_function(); //inheritance
         merienda_function mf = new merienda_function(); //inheritance
@@ -20,13 +22,26 @@ public class Project {
         String c_section = s.nextLine();  
         System.out.print("Please enter Customer ID: " );
         int c_ID = s.nextInt(); 
-        System.out.println();
+        
          //CUSTUMER INFO INSTANCE
         Customer_info cust = new Customer_info(c_name,c_section,c_ID);
         cust.setID(c_ID);
         int final_id = cust.getID();
         
-        System.out.println("What to buy?");
+ boolean accountLog = cust.accountLogin(c_name,final_id);
+        
+        while(accountLog){
+        	System.out.print("Change Customer ID? [1]YES [0]NO: " );
+            int changeID = s.nextInt();
+            if(changeID == 1){
+            	System.out.print("Please enter New Customer ID: " );
+            	c_ID = s.nextInt();
+            	 Customer_info custID = new Customer_info(c_name, c_ID);
+            	 final_id = custID.getID();
+            	 System.out.println("Password Changed!\n");
+            }    
+        	
+        System.out.println("\nWhat to buy?");
         System.out.println("Choose from the following" + '\n' + "   1 - Breakfast Foods" 
                            + '\n' + "   2 - Lunch Foods" + '\n' + "   3 - Merienda Foods" + '\n');
         
@@ -94,7 +109,7 @@ public class Project {
         System.out.println("FULL INFO.. ");
         System.out.println(" Custumer name: " + c_name );
         System.out.println(" Custumer section: " + c_section);
-        System.out.println(" Custumer ID: " + c_ID);
+        System.out.println(" Custumer ID: " + final_id);
         System.out.println();
         int total =  msoup + mdrinks + mbiscuit;
         System.out.println("Total Price: ₱" + total);
@@ -170,7 +185,7 @@ public class Project {
         System.out.println("FULL INFO.. ");
         System.out.println(" Custumer name: " + c_name );
         System.out.println(" Custumer section: " + c_section);
-        System.out.println(" Custumer ID: " + c_ID);
+        System.out.println(" Custumer ID: " + final_id);
         System.out.println();
         int lunch_total =  lcarb + ldrinks + lbiscuit;
         System.out.println("Total Price: ₱" + lunch_total);
@@ -246,7 +261,7 @@ public class Project {
         System.out.println("FULL INFO.. ");
         System.out.println(" Custumer name: " + c_name );
         System.out.println(" Custumer section: " + c_section);
-        System.out.println(" Custumer ID: " + c_ID);
+        System.out.println(" Custumer ID: " + final_id);
         System.out.println();
         int merienda_total =  merienda + mer_drinks + merbiscuit;
         System.out.println("Total Price: ₱" + merienda_total);
@@ -264,10 +279,30 @@ public class Project {
         System.out.print("--    Thank you  --");
         break;
         }
+ System.out.println("\n\nDo you want to log out? \n\tEnter [1] to logout\n\tEnter [0] to cancel");
+        
+        orderAgain = s.nextInt();
+        if(orderAgain == 1){
+        	System.out.println("");
+        	//accountLog = false;
+       accountLog = cust.accountLogin(orderAgain);
+        }
     }
+        System.out.println("Do you want to login again? \n\tEnter [1] to continue\n\tEnter [0] to exit");
+        int again = s.nextInt();
+        if(again == 1){
+        	System.out.println("");
+        Project.main(args);
+        }
+        System.out.print("System out, Thank you!");
+        }
 
     private static boolean calc(int i, int i0) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
-}
+
+
+	}
+
+
