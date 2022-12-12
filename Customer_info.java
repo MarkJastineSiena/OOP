@@ -11,18 +11,19 @@ public class Customer_info {
   public String cust_name;
   public String cust_section;
   private int cust_ID;
-  private String[][] acc = {	{"ian", "12345"},
-								      {"justine","56789"},
-							      	{"jet","33333"},
-							      	{"vincent","17351"}
-	                        };
-   //constructor overloading
+ private String[][] acc = {	{"ian", "12345"},
+				{"justine","56789"},
+				{"jet","33333"},
+				{"vincent","17351"},
+                                {"ulrich","11111"}
+	                  };
+ 
   public Customer_info(String name, String section, int ID) {
     this.cust_name = name;
     this.cust_section =section ;
     this.cust_ID = ID;
   }
-  //constructor overloading
+    //constructor overloading
 	  public Customer_info(String name, int ID){
 		  
 		  String S_ID = Integer.toString(ID);
@@ -63,7 +64,6 @@ public class Customer_info {
 				   return false;}
 		    
 			  }
-	  
   //encapsulation
   void setID(int cust_ID){
       this.cust_ID= cust_ID;
