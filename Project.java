@@ -1,31 +1,33 @@
+
 package project;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Project {
 
-public static void main(String[] args) {
-		int orderAgain = 0;
-		
-		Scanner s = new Scanner(System.in);
+   
+    public static void main(String[] args) {
+        
+        int orderAgain = 0;
+        Scanner s = new Scanner(System.in);
         Additional_Functions add = new Additional_Functions();
         lunch_function lf = new lunch_function(); //inheritance
         merienda_function mf = new merienda_function(); //inheritance
         System.out.println("Console Based Canteen Ordering System " + '\n');
         
-        System.out.print("Please enter Customer name: ");
+        System.out.print("Enter Customer name: ");
         String c_name = s.nextLine();  
-        System.out.print("Please enter Customer section: " );
+        System.out.print("Enter Customer section: " );
         String c_section = s.nextLine();  
-        System.out.print("Please enter Customer ID: " );
+        System.out.print("Enter Customer ID: " );
         int c_ID = s.nextInt(); 
-        
+        System.out.println();
          //CUSTUMER INFO INSTANCE
         Customer_info cust = new Customer_info(c_name,c_section,c_ID);
         cust.setID(c_ID);
         int final_id = cust.getID();
         
- boolean accountLog = cust.accountLogin(c_name,final_id);
+         boolean accountLog = cust.accountLogin(c_name,final_id);
         
         while(accountLog){
         	System.out.print("Change Customer ID? [1]YES [0]NO: " );
@@ -36,9 +38,9 @@ public static void main(String[] args) {
             	 Customer_info custID = new Customer_info(c_name, c_ID);
             	 final_id = custID.getID();
             	 System.out.println("Password Changed!\n");
-            }    
-        	
-        System.out.println("\nWhat to buy?");
+            }  
+            
+        System.out.println("What to buy?");
         System.out.println("Choose from the following" + '\n' + "   1 - Breakfast Foods" 
                            + '\n' + "   2 - Lunch Foods" + '\n' + "   3 - Merienda Foods" + '\n');
         
@@ -74,30 +76,30 @@ public static void main(String[] args) {
            
           System.out.println();
           System.out.println("Lets start your morning with a soup.. ");
-                System.out.print("  Please item code: ");
+                System.out.print("  Enter item code: ");
                 int mi = case1.nextInt(); 
                 int mi1 = morning_price.get(mi);//price
-                System.out.print("  Please enter item quantity: ");
+                System.out.print("  Enter item quantity: ");
                 int mq = case1.nextInt(); 
                 int msoup= add.method(mi1,mq);
                 System.out.println(msoup);
                 
            System.out.println();
            System.out.println("For your drinks.. ");
-                System.out.print("  Please enter item code: ");
+                System.out.print("  Enter item code: ");
                 int md = case1.nextInt(); 
                 int md1 = morning_price.get(md);//price
-                System.out.print("  Please enter item quantity: ");
+                System.out.print("  Enter item quantity: ");
                 int mdq = case1.nextInt(); 
                 int mdrinks = add.method(md1,mdq,0);
                 System.out.println(mdrinks);
                 
             System.out.println();
             System.out.println("Moving to Biscuits.. ");
-                System.out.print("  Please enter item code: ");
+                System.out.print("  Enter item code: ");
                 int mb = case1.nextInt(); 
                 int mb1 = morning_price.get(mb);//price
-                System.out.print("  Please enter item quantity: ");
+                System.out.print("  Enter item quantity: ");
                 int mbq = case1.nextInt(); 
                 int mbiscuit= add.method(mb1,mbq,0);
                 System.out.println(mbiscuit);
@@ -106,7 +108,7 @@ public static void main(String[] args) {
         System.out.println("FULL INFO.. ");
         System.out.println(" Custumer name: " + c_name );
         System.out.println(" Custumer section: " + c_section);
-        System.out.println(" Custumer ID: " + final_id);
+        System.out.println(" Custumer ID: " + c_ID);
         System.out.println();
         int total =  msoup + mdrinks + mbiscuit;
         System.out.println("Total Price: ₱" + total);
@@ -150,30 +152,30 @@ public static void main(String[] args) {
            
            System.out.println();
            System.out.println("For your carbs.. ");
-                System.out.print("  Please item code: ");
+                System.out.print("  Enter item code: ");
                 int lc = case2.nextInt(); //lc means lunch code
                 int lc1 = lunch_price.get(lc);//price
-                System.out.print("  Please enter item quantity: ");
+                System.out.print("  Enter item quantity: ");
                 int lq = case2.nextInt(); //lq means lunch quantity
                 int lcarb= lf.method(lc1,lq); //method na ito is galing sa inheritance(lunch_function.java)
                 System.out.println(lcarb);
             System.out.println();
           
             System.out.println("How about your drinks? ");
-                System.out.print("  Please enter item code: ");
+                System.out.print("  Enter item code: ");
                 int ld = case2.nextInt(); 
                 int ld1 = lunch_price.get(ld);//price
-                System.out.print("  Please enter item quantity: ");
+                System.out.print("  Enter item quantity: ");
                 int ldq = case2.nextInt(); 
                 int ldrinks = lf.method(ld1,ldq,0);
                 System.out.println(ldrinks);
                 
             System.out.println();
             System.out.println("Moving to Biscuits.. ");
-                System.out.print("  Please enter item code ");
+                System.out.print("  Enter item code ");
                 int lb = case2.nextInt(); 
                 int lb1 = lunch_price.get(lb);//price
-                System.out.print("  Please enter item quantity: ");
+                System.out.print("  Enter item quantity: ");
                 int bq = case2.nextInt(); 
                 int lbiscuit= lf.method(lb1,bq,0);
                 System.out.println(lbiscuit);
@@ -182,7 +184,7 @@ public static void main(String[] args) {
         System.out.println("FULL INFO.. ");
         System.out.println(" Custumer name: " + c_name );
         System.out.println(" Custumer section: " + c_section);
-        System.out.println(" Custumer ID: " + final_id);
+        System.out.println(" Custumer ID: " + c_ID);
         System.out.println();
         int lunch_total =  lcarb + ldrinks + lbiscuit;
         System.out.println("Total Price: ₱" + lunch_total);
@@ -191,7 +193,7 @@ public static void main(String[] args) {
         int l_change= l_bill - lunch_total;
         System.out.println("Here is your change: ₱" + l_change + '\n');
         if(lunch_total >= 80){
-              add.promo();
+              add.promo();       //0        1
               String[] choose = {null, "Lemon Juice", "Watermelon Soda", "Cold Choco Milk","Soya Milk","Strawberry Juice"};
               System.out.print("          From the choices 1-5. Enter your choice please: ");
               int choice = s.nextInt();
@@ -226,30 +228,30 @@ public static void main(String[] args) {
            
            System.out.println();
            System.out.println("Your Merienda Please.. ");
-                System.out.print("  Please item code: ");
+                System.out.print("  Enter item code: ");
                 int mc = case3.nextInt(); //mc means merienda code
                 int mc1 = merienda_price.get(mc);//price
-                System.out.print("  Please enter item quantity: ");
+                System.out.print("  Enter item quantity: ");
                 int mer_q = case3.nextInt(); //mq means merienda quantity
                 int merienda= mf.method(mc1,mer_q); //method na ito is galing sa inheritance(merienda_function.java)
                 System.out.println(merienda);
                 System.out.println();
            
            System.out.println("How about your drinks? ");
-                System.out.print("  Please enter item code: ");
+                System.out.print("  Enter item code: ");
                 int mer_d = case3.nextInt(); 
                 int mer_d1 = merienda_price.get(mer_d);//price
-                System.out.print("  Please enter item quantity: ");
+                System.out.print("  Enter item quantity: ");
                 int mer_dq = case3.nextInt(); 
                 int mer_drinks = mf.method(mer_d1,mer_dq,0);
                 System.out.println(mer_drinks);
                 
             System.out.println();
             System.out.println("Moving forward to Snacks.. ");
-                System.out.print("  Please enter item code: ");
+                System.out.print("  Enter item code: ");
                 int mer_b = case3.nextInt(); 
                 int mer_b1 = merienda_price.get(mer_b);//price
-                System.out.print("  Please enter item quantity: ");
+                System.out.print("  Enter item quantity: ");
                 int mer_bq = case3.nextInt(); 
                 int merbiscuit= lf.method(mer_b1,mer_bq,0);
                 System.out.println(merbiscuit);
@@ -258,7 +260,7 @@ public static void main(String[] args) {
         System.out.println("FULL INFO.. ");
         System.out.println(" Custumer name: " + c_name );
         System.out.println(" Custumer section: " + c_section);
-        System.out.println(" Custumer ID: " + final_id);
+        System.out.println(" Custumer ID: " + c_ID);
         System.out.println();
         int merienda_total =  merienda + mer_drinks + merbiscuit;
         System.out.println("Total Price: ₱" + merienda_total);
@@ -275,8 +277,12 @@ public static void main(String[] args) {
             }
         System.out.print("--    Thank you  --");
         break;
+        
+        default: System.out.println("Invalid input");
+        break;
         }
- System.out.println("\n\nDo you want to log out? \n\tEnter [1] to logout\n\tEnter [0] to cancel");
+        
+         System.out.println("\n\nDo you want to log out? \n\tEnter [1] to logout\n\tEnter [0] to cancel");
         
         orderAgain = s.nextInt();
         if(orderAgain == 1){
@@ -292,13 +298,7 @@ public static void main(String[] args) {
         }
         System.out.print("System out, Thank you!");
         }
-
-    private static boolean calc(int i, int i0) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
     
-
-
-	}
-
-
+        
