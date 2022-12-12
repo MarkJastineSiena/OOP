@@ -1,12 +1,9 @@
-package OOP;
+package project;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class jastineProj {
+public class Project {
 
-	/**
-	 * @param args
-	 */
 public static void main(String[] args) {
 		int orderAgain = 0;
 		
@@ -284,7 +281,6 @@ public static void main(String[] args) {
         orderAgain = s.nextInt();
         if(orderAgain == 1){
         	System.out.println("");
-        	//accountLog = false;
        accountLog = cust.accountLogin(orderAgain);
         }
     }
